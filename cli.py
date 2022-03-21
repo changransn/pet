@@ -31,7 +31,6 @@ from pet.utils import eq_div
 from pet.wrapper import SEQUENCE_CLASSIFIER_WRAPPER, WrapperConfig
 
 logger = log.get_logger("root")
-webhook_url = open("slack_webhook.txt").read()
 
 
 def load_pet_configs(args) -> Tuple[WrapperConfig, pet.TrainConfig, pet.EvalConfig]:
@@ -144,7 +143,6 @@ def load_ipet_config(args) -> pet.IPetConfig:
     return ipet_cfg
 
 
-@slack_sender(webhook_url=webhook_url, channel="Teven")
 def main():
     args = parser.parse_args()
     logger.info("Parameters: {}".format(args))
